@@ -48,8 +48,8 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'htts://sso.lakelon.dev',
-    'htts://lakelon.dev',
+    'https://sso.lakelon.dev',
+    'https://lakelon.dev',
 ]
 
 ROOT_URLCONF = 'main.urls'
