@@ -17,7 +17,7 @@ else:
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = ['localhost', '0.0.0.0', '127.0.0.1', 'lakelon.dev']
+ALLOWED_HOSTS = ['localhost', '0.0.0.0', '127.0.0.1', '10.0.0.178', 'lakelon.dev', 'sso.lakelon.dev', '174.161.117.29']
 
 AUTH_USER_MODEL = "accounts.Account"
 
