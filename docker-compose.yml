@@ -1,17 +1,21 @@
 version: '3.8'
 services:
-  backend:
+  sso-frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+    networks:
+      - lakelon_dev
+
+  sso-backend:
     build: ./backend
     volumes:
       - ./backend:/app
-    ports:
-      - "8000:8000"
     environment:
       - DEBUG=1
+    networks:
+      - lakelon_dev
 
-  frontend:
-    build: ./frontend
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
+networks:
+  lakelon_dev:
+    external: true

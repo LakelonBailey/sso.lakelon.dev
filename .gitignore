@@ -1,0 +1,32 @@
+# Ignore the production key file.
+/keys/
+
+# Compiled Python
+__pycache__
+*.pyc
+
+# Logs
+*.log
+
+# SQLite Databases
+*.sqlite3
+
+# Virtual Environments
+/.venv/
+/venv/
+
+# Project Directories
+/media/
+/static/
+/logs/
+/backups/
+/dev_data/
+
+*.psql
+*.sock
+*.key
+*.key.pub
+*.pem
+*.env
+reload.sh
+cronjobs
