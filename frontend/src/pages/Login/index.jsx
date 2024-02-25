@@ -16,10 +16,10 @@ function LoginPage() {
   }
 
   const [error, setError] = useState('');
-  const [email, setEmail] = useState('lake.bailey@icloud.com');
+  const [email, setEmail] = useState('');
   const [loading, setIsLoading] = useState(false);
 
-  const [password, setPassword] = useState('205602');
+  const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
