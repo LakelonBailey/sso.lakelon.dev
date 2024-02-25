@@ -11,6 +11,7 @@ WORKDIR /app
 # Install dependencies using pipenv
 COPY Pipfile Pipfile.lock /app/
 RUN pip install pipenv && pipenv install --system
+RUN python manage.py migrate
 
 # Copy the current directory contents into the container at /app
 COPY . /app/
