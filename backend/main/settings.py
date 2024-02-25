@@ -17,7 +17,7 @@ else:
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = ['localhost', '0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '0.0.0.0', '127.0.0.1', 'lakelon.dev']
 
 AUTH_USER_MODEL = "accounts.Account"
 
@@ -47,7 +47,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'htts://sso.lakelon.dev',
+    'htts://lakelon.dev',
 ]
 
 ROOT_URLCONF = 'main.urls'
