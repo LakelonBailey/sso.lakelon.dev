@@ -23,6 +23,7 @@ else:
     ALLOWED_HOSTS = [
         os.environ['LAKELON_DEV_IP_ADDRESS'],
         'lakelon.dev',
+        '.lakelon.dev',
         'sso.lakelon.dev'
     ]
 
