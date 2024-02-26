@@ -5,12 +5,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+DEBUG = True
 ENVIRONMENT = os.environ.get('ENVIRONMENT', 'prod')
 if ENVIRONMENT not in ['dev', 'test', 'prod']:
     raise ValueError(f"Invalid environment: {ENVIRONMENT}")
 
-DEBUG = os.environ.get('DEBUG', 'false').lower() == 'true'
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
