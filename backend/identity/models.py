@@ -1,5 +1,5 @@
 # Django Imports
-from django.db.models import UUIDField, CharField, ManyToManyField
+from django.db import models
 from uuid import uuid4
 from main.models import BaseClass
 import random
@@ -14,16 +14,16 @@ def default_client_secret():
 
 
 class Client(BaseClass):
-    client_name = CharField(max_length=100, null=True)
-    client_url = CharField(max_length=100, null=True)
+    client_name = models.CharField(max_length=100, null=True)
+    client_url = models.CharField(max_length=100, null=True)
 
-    client_id = UUIDField(
+    client_id = models.UUIDField(
         default=uuid4,
         unique=True,
         editable=False
     )
 
-    client_secret = CharField(
+    client_secret = models.CharField(
         default=default_client_secret,
         max_length=64,
         null=False,
@@ -31,10 +31,34 @@ class Client(BaseClass):
         editable=False,
     )
 
-    authorized_accounts = ManyToManyField(
+    authorized_accounts = models.ManyToManyField(
         'accounts.Account',
         related_name='authorized_clients'
     )
 
     def __str__(self):
         return self.client_url
+
+
+class AuthorizationCode(BaseClass):
+    account = models.ForeignKey(
+        'accounts.Account',
+        null=True,
+        on_delete=models.CASCADE,
+        related_name='authorization_codes'
+    )
+
+    client = models.ForeignKey(
+        'identity.Client',
+        null=True,
+        on_delete=models.CASCADE,
+        related_name='authorization_codes'
+    )
+
+    code = models.UUIDField(
+        default=uuid4,
+        unique=True,
+        editable=False
+    )
+
+    uses = models.IntegerField(default=0)
