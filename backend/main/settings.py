@@ -10,10 +10,7 @@ ENVIRONMENT = os.environ.get('ENVIRONMENT', 'prod')
 if ENVIRONMENT not in ['dev', 'test', 'prod']:
     raise ValueError(f"Invalid environment: {ENVIRONMENT}")
 
-if ENVIRONMENT == 'dev':
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'false').lower() == 'true'
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
