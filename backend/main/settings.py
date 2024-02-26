@@ -20,7 +20,8 @@ else:
         os.environ['LAKELON_DEV_IP_ADDRESS'],
         'lakelon.dev',
         '.lakelon.dev',
-        'sso.lakelon.dev'
+        'sso.lakelon.dev',
+        'ssolakelondev-sso-backend-1'
     ]
 
 AUTH_USER_MODEL = "accounts.Account"
