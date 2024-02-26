@@ -17,7 +17,14 @@ else:
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = ['localhost', '0.0.0.0', '127.0.0.1', '10.0.0.178', 'lakelon.dev', 'sso.lakelon.dev', '174.161.117.29']
+if ENVIRONMENT == 'dev':
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+else:
+    ALLOWED_HOSTS = [
+        os.environ['LAKELON_DEV_IP_ADDRESS'],
+        'lakelon.dev',
+        'sso.lakelon.dev'
+    ]
 
 AUTH_USER_MODEL = "accounts.Account"
 
